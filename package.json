@@ -1,0 +1,23 @@
+{
+  "name": "bunny",
+  "version": "0.0.1",
+  "description": "A simplistic js lisp interpreter inspired from mal",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "lisp",
+    "js",
+    "mal",
+    "list"
+  ],
+  "author": "Pawan Kumar",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-preset-env": "^1.5.1"
+  },
+  "dependencies": {
+    "babel-register": "^6.24.1"
+  }
+}
