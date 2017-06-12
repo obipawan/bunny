@@ -1,6 +1,6 @@
 const regex = /[\s,]*(~@|[\[\]{}()'`~^@]|"(?:\\.|[^\\"])*"|;.*|[^\s\[\]{}('"`,;)]*)/g
 
-export const tokenize = (input = '') =>
+const tokenize = (input = '') =>
 	input.match(regex)
 		.filter(token => !!token)
 		.map(token => token.replace(' ', ''))
@@ -17,12 +17,10 @@ const evalToken = token => {
 	return { name: token }
 }
 
-export const generateAST = (tokens = []) => ast(tokens).tokens
-
 const ast = (tokens = []) => {
 	const length = tokens.length
 	if (!length)
-		return { tokens: [] }
+		return { ast: [] }
 	let obj = []
 	let index = 0
 	while (true) {
@@ -32,7 +30,7 @@ const ast = (tokens = []) => {
 		if (token === '(') {
 			const {
 				endIndex = 0,
-				tokens: subAst,
+				ast: subAst,
 			} = ast(tokens.slice(++index))
 			if (subAst.length) {
 				if (!obj.length) {
@@ -51,5 +49,8 @@ const ast = (tokens = []) => {
 		obj.push(evalToken(token))
 		index++
 	}
-	return { tokens: obj, endIndex: index }
+	return { ast: obj, endIndex: index }
 }
+
+export default (input = '') =>
+	ast(tokenize(input)).ast
