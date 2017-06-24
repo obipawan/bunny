@@ -11,9 +11,13 @@ const repl = () =>
 	readline.question(prompt, input => {
 		if (input === null) {
 			readline.close()
-			return;
+			return
 		}
-		input && console.log(read(input))
+		try {
+			input && console.log(read(input))
+		} catch (e) {
+			console.log(e.message)
+		}
 		repl()
 	})
 
