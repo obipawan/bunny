@@ -1,4 +1,6 @@
 import read from './read'
+import evaluate from './evaluate'
+import print from './print'
 
 const readline = require('readline').createInterface({
 	input: process.stdin,
@@ -14,7 +16,7 @@ const repl = () =>
 			return
 		}
 		try {
-			input && console.log(read(input))
+			print(evaluate(read(input)))
 		} catch (e) {
 			console.log(e.message)
 		}
