@@ -34,6 +34,10 @@ const ast = (tokens = []) => {
 				array.push(tokens[index])
 			}
 		}
+	} else {
+		if (tokens.length > 1)
+			throw new Error('invalid exp')
+		return { array: [tokens[0]] }
 	}
 	return { array, endIndex: index }
 }
