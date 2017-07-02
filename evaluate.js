@@ -25,6 +25,8 @@ const evaluate = (ast, env = globalEnv) => {
 				letEnv.set(a1[i], evaluate(a1[i + 1], letEnv))
 			}
 			return evaluate(a2, letEnv)
+		case 'fn':
+			return (...args) => evaluate(a2, new Env(env, a1, args))
 		default:
 			const list = evalAst(ast, env)
 			const [ fn ] = list

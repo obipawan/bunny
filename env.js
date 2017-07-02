@@ -1,7 +1,9 @@
 export default class {
-	constructor (outer) {
+	constructor (outer, binds = [], expressions = []) {
 		this.data = {}
 		this.outer = outer || null
+
+		binds.forEach((bind, i) => this.data[bind] = expressions[i])
 	}
 
 	find (key) {
