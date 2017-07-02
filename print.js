@@ -1,2 +1,2 @@
 export default object =>
-	object && console.log(object)
+	(object !== 'undefined' || object !== null) && console.log(object)
