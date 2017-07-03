@@ -7,7 +7,7 @@ const readline = require('readline').createInterface({
 	output: process.stdout,
 })
 
-const prompt = 'bunny> '
+const prompt = '(\\_/): '
 
 const repl = () =>
 	readline.question(prompt, input => {

@@ -13,7 +13,7 @@
     "list"
   ],
   "author": "Pawan Kumar",
-  "license": "MIT",
+  "license": "WTFPL",
   "devDependencies": {
     "babel-preset-env": "^1.5.1"
   },
